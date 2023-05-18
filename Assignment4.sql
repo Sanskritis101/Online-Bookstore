@@ -126,3 +126,21 @@ mysql> desc shopping_basket;
 | price     | float       | YES  |     | NULL    |       |
 +-----------+-------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
+
+mysql> create table customer(
+    -> customer_ID int primary key,
+    -> c_name varchar(255) not null,
+    -> basket_ID int,
+    -> foreign key(basket_ID) references shopping_basket(basket_ID)
+    -> );
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> desc customer;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| customer_ID | int          | NO   | PRI | NULL    |       |
+| c_name      | varchar(255) | NO   |     | NULL    |       |
+| basket_ID   | int          | YES  | MUL | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
