@@ -7,7 +7,7 @@ Database changed
 mysql> create table author(
     -> a_name varchar(255) primary key,
     -> phone int,
-    -> email_id varchar(100)
+    -> email varchar(100)
     -> );
 Query OK, 0 rows affected (0.26 sec)
 
@@ -21,6 +21,19 @@ mysql> desc author;
 +----------+--------------+------+-----+---------+-------+
 3 rows in set (0.45 sec)
 
+mysql> insert into author values("Jane Austen",787965452,"janeausten@gmail.com");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into author values("William Shakespeare",734465452, "shakespeare@yahoo.mail");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into author values("Oscar Wilde",939465412, "oscarwilde@outlook.com");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into author values("Victor Hugo",967362419, "hugovictor1@mail.com");
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
 mysql> create table publisher(
     -> P_name varchar(255) primary key,
     -> url varchar(100) unique
