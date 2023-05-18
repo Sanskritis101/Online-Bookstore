@@ -33,7 +33,6 @@ Query OK, 1 row affected (0.06 sec)
 mysql> insert into author values("Victor Hugo",967362419, "hugovictor1@mail.com");
 Query OK, 1 row affected (0.06 sec)
 
-mysql>
 mysql> create table publisher(
     -> P_name varchar(255) primary key,
     -> url varchar(100) unique
