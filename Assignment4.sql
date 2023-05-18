@@ -74,3 +74,14 @@ mysql> select * from publisher;
 | TwaynePublishers | twaynepublishers.to |
 +------------------+---------------------+
 5 rows in set (0.00 sec)
+
+mysql> create table book(
+    -> ISBN varchar(15) primary key,
+    -> Title varchar(255) not null,
+    -> Author varchar(255),
+    -> Year year,
+    -> Publisher varchar(255),
+    -> Price float
+    -> );
+Query OK, 0 rows affected (0.12 sec)
+
