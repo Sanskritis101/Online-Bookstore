@@ -39,3 +39,38 @@ mysql> create table publisher(
     -> );
 Query OK, 0 rows affected (0.17 sec)
 
+mysql> desc publisher;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| P_name | varchar(255) | NO   | PRI | NULL    |       |
+| url    | varchar(100) | YES  | UNI | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into publisher values("Dover","doverbooks.in");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into publisher values("HarperCollins","harpercollins.us");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into publisher values("ModernLibrary","modernlib.org");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into publisher values("PenguinBooks","penguinbooks.com");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into publisher values("TwaynePublishers","twaynepublishers.to");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from publisher;
++------------------+---------------------+
+| P_name           | url                 |
++------------------+---------------------+
+| Dover            | doverbooks.in       |
+| HarperCollins    | harpercollins.us    |
+| ModernLibrary    | modernlib.org       |
+| PenguinBooks     | penguinbooks.com    |
+| TwaynePublishers | twaynepublishers.to |
++------------------+---------------------+
+5 rows in set (0.00 sec)
