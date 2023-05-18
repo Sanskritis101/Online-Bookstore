@@ -162,6 +162,33 @@ mysql> desc shopping_basket;
 +-----------+-------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
+mysql> insert into shopping_basket values(101,"0881455237",999.00);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into shopping_basket values(102,"0881455237",999.00);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into shopping_basket values(103,"8175993081",999.00);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into shopping_basket values(104,"0140434941",540.00);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into shopping_basket values(105,"0375757422",799.00);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from shopping_basket;
++-----------+------------+-------+
+| basket_ID | order_id   | price |
++-----------+------------+-------+
+|       101 | 0881455237 |   999 |
+|       102 | 0881455237 |   999 |
+|       103 | 8175993081 |   999 |
+|       104 | 0140434941 |   540 |
+|       105 | 0375757422 |   799 |
++-----------+------------+-------+
+5 rows in set (0.00 sec)
+
 mysql> create table customer(
     -> customer_ID int primary key,
     -> c_name varchar(255) not null,
@@ -180,42 +207,29 @@ mysql> desc customer;
 +-------------+--------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
-mysql> insert into shopping_basket values(101,"0881455237",999.00);
-Query OK, 1 row affected (0.05 sec)
+mysql> insert into customer values(1,"Asifa Parbeen", 102);
+Query OK, 1 row affected (0.09 sec)
 
-mysql> insert into shopping_basket values(102,"0881455237",999.00);
-Query OK, 1 row affected (0.07 sec)
+mysql> insert into customer values(2,"Nihal Gupta", 105);
+Query OK, 1 row affected (0.04 sec)
 
-mysql> insert into shopping_basket values(103,"8175993081",999.00);
-Query OK, 1 row affected (0.05 sec)
+mysql> insert into customer values(4,"Shreyas Maurya", 105);
+Query OK, 1 row affected (0.08 sec)
 
-mysql> insert into shopping_basket values(104,"0140434941",999.00);
+mysql> insert into customer values(3,"Ritvik Jambekar", 103);
 Query OK, 1 row affected (0.06 sec)
 
-mysql> insert into shopping_basket values(105,"0375757422",799.00);
-Query OK, 1 row affected (0.10 sec)
+mysql> insert into customer values(5,"Avdut Naik", 104);
+Query OK, 1 row affected (0.06 sec)
 
-mysql> delete from shopping_basket where basket_ID = 104;
-Query OK, 1 row affected (0.10 sec)
-
-mysql> insert into shopping_basket values(104,"0140434941",54.00);
-Query OK, 1 row affected (0.05 sec)
-
-mysql> delete from shopping_basket where basket_ID = 104;
-Query OK, 1 row affected (0.10 sec)
-
-mysql> insert into shopping_basket values(104,"0140434941",540.00);
-Query OK, 1 row affected (0.05 sec)
-
-mysql> select * from shopping_basket
-    -> ;
-+-----------+------------+-------+
-| basket_ID | order_id   | price |
-+-----------+------------+-------+
-|       101 | 0881455237 |   999 |
-|       102 | 0881455237 |   999 |
-|       103 | 8175993081 |   999 |
-|       104 | 0140434941 |   540 |
-|       105 | 0375757422 |   799 |
-+-----------+------------+-------+
+mysql> select * from customer;
++-------------+-----------------+-----------+
+| customer_ID | c_name          | basket_ID |
++-------------+-----------------+-----------+
+|           1 | Asifa Parbeen   |       102 |
+|           2 | Nihal Gupta     |       105 |
+|           3 | Ritvik Jambekar |       103 |
+|           4 | Shreyas Maurya  |       105 |
+|           5 | Avdut Naik      |       104 |
++-------------+-----------------+-----------+
 5 rows in set (0.00 sec)
