@@ -85,3 +85,44 @@ mysql> create table book(
     -> );
 Query OK, 0 rows affected (0.12 sec)
 
+mysql> alter table book add constraint b1 foreign key(Author) references author(a_name);
+Query OK, 0 rows affected (0.18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table book add constraint b2 foreign key(Publisher) references publisher(P_name);
+Query OK, 0 rows affected (0.22 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc book;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| ISBN      | varchar(15)  | NO   | PRI | NULL    |       |
+| Title     | varchar(255) | NO   |     | NULL    |       |
+| Author    | varchar(255) | YES  | MUL | NULL    |       |
+| Year      | year         | YES  |     | NULL    |       |
+| Publisher | varchar(255) | YES  | MUL | NULL    |       |
+| Price     | float        | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> create table shopping_basket(
+    -> basket_ID int primary key,
+    -> order_id varchar(15),
+    -> price float
+    -> );
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> alter table shopping_basket add constraint s1 foreign key(order_id) references book(ISBN);
+Query OK, 0 rows affected (0.18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc shopping_basket;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| basket_ID | int         | NO   | PRI | NULL    |       |
+| order_id  | varchar(15) | YES  | MUL | NULL    |       |
+| price     | float       | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
