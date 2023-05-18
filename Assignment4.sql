@@ -144,3 +144,9 @@ mysql> desc customer;
 | basket_ID   | int          | YES  | MUL | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
+
+mysql> insert into book values("0743477103","Macbeth","William Shakespeare",1903,"Dover",720.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into book values("0483477103","Hamlet","William Shakespeare",1901,"Dover",720.00);
+Query OK, 1 row affected (0.06 sec)
