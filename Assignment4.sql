@@ -106,6 +106,41 @@ mysql> desc book;
 +-----------+--------------+------+-----+---------+-------+
 6 rows in set (0.00 sec)
 
+mysql> insert into book values("0743477103","Macbeth","William Shakespeare",1903,"Dover",720.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into book values("0483477103","Hamlet","William Shakespeare",1901,"Dover",720.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into book values("0375757422","Emma","Jane Austen",1915,"ModernLibrary",799.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into book values("0679601666","Pride and Prejudice","Jane Austen",1915,"ModernLibrary",799.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into book values("0140434941","Oliver Twist","Charles Dickens",1950,"PenguinBooks",540.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into book values("0881455237","Hernani","Victor Hugo",1930,"TwaynePublishers",999.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into book values("8175993081","The Picture of Dorian Gray","Oscar Wilde",1990,"TwaynePublishers",999.00);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from book;
++------------+----------------------------+---------------------+------+------------------+-------+
+| ISBN       | Title                      | Author              | Year | Publisher        | Price |
++------------+----------------------------+---------------------+------+------------------+-------+
+| 0140434941 | Oliver Twist               | Charles Dickens     | 1950 | PenguinBooks     |   540 |
+| 0375757422 | Emma                       | Jane Austen         | 1915 | ModernLibrary    |   799 |
+| 0483477103 | Hamlet                     | William Shakespeare | 1901 | Dover            |   720 |
+| 0679601666 | Pride and Prejudice        | Jane Austen         | 1915 | ModernLibrary    |   799 |
+| 0743477103 | Macbeth                    | William Shakespeare | 1903 | Dover            |   720 |
+| 0881455237 | Hernani                    | Victor Hugo         | 1930 | TwaynePublishers |   999 |
+| 8175993081 | The Picture of Dorian Gray | Oscar Wilde         | 1990 | TwaynePublishers |   999 |
++------------+----------------------------+---------------------+------+------------------+-------+
+7 rows in set (0.00 sec)
+
 mysql> create table shopping_basket(
     -> basket_ID int primary key,
     -> order_id varchar(15),
@@ -145,14 +180,42 @@ mysql> desc customer;
 +-------------+--------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
-mysql> insert into book values("0743477103","Macbeth","William Shakespeare",1903,"Dover",720.00);
+mysql> insert into shopping_basket values(101,"0881455237",999.00);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into shopping_basket values(102,"0881455237",999.00);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into shopping_basket values(103,"8175993081",999.00);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into shopping_basket values(104,"0140434941",999.00);
 Query OK, 1 row affected (0.06 sec)
 
-mysql> insert into book values("0483477103","Hamlet","William Shakespeare",1901,"Dover",720.00);
-Query OK, 1 row affected (0.06 sec)
+mysql> insert into shopping_basket values(105,"0375757422",799.00);
+Query OK, 1 row affected (0.10 sec)
 
-mysql> insert into book values("0375757422","Emma","Jane Austen",1915,"ModernLibrary",799.00);
-Query OK, 1 row affected (0.06 sec)
+mysql> delete from shopping_basket where basket_ID = 104;
+Query OK, 1 row affected (0.10 sec)
 
-mysql> insert into book values("0679601666","Pride and Prejudice","Jane Austen",1915,"ModernLibrary",799.00);
-Query OK, 1 row affected (0.06 sec)
+mysql> insert into shopping_basket values(104,"0140434941",54.00);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> delete from shopping_basket where basket_ID = 104;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into shopping_basket values(104,"0140434941",540.00);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from shopping_basket
+    -> ;
++-----------+------------+-------+
+| basket_ID | order_id   | price |
++-----------+------------+-------+
+|       101 | 0881455237 |   999 |
+|       102 | 0881455237 |   999 |
+|       103 | 8175993081 |   999 |
+|       104 | 0140434941 |   540 |
+|       105 | 0375757422 |   799 |
++-----------+------------+-------+
+5 rows in set (0.00 sec)
