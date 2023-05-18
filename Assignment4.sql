@@ -150,3 +150,9 @@ Query OK, 1 row affected (0.06 sec)
 
 mysql> insert into book values("0483477103","Hamlet","William Shakespeare",1901,"Dover",720.00);
 Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into book values("0375757422","Emma","Jane Austen",1915,"ModernLibrary",799.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into book values("0679601666","Pride and Prejudice","Jane Austen",1915,"ModernLibrary",799.00);
+Query OK, 1 row affected (0.06 sec)
